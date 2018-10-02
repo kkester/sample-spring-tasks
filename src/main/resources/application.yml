@@ -6,3 +6,8 @@ spring:
     url: jdbc:mysql://localhost:3306/db_example?verifyServerCertificate=false&useSSL=false&requireSSL=false
     username: root
     password: yourpassword
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      driver-class-name: com.mysql.jdbc.Driver
+  batch:
+    initialize-schema: always

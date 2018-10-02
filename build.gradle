@@ -33,6 +33,9 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-task')
 	compile('org.springframework.cloud:spring-cloud-task-core')
 
+	compile('org.springframework.boot:spring-boot-starter-batch')
+	compile('org.springframework.cloud:spring-cloud-task-batch')
+
     // Use MySQL Connector-J
     compile('mysql:mysql-connector-java')
 
