@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:testDB
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    generate-unique-name: true
+  batch:
+    initialize-schema: always

@@ -16,6 +16,8 @@ public class UserItemWriter implements ItemWriter<UserEntity> {
 
     @Override
     public void write(List<? extends UserEntity> items) {
-        items.forEach(u -> userService.save(u));
+        if (items != null) {
+            items.forEach(u -> userService.save(u));
+        }
     }
 }

@@ -7,7 +7,5 @@ spring:
     username: root
     password: yourpassword
     driver-class-name: com.mysql.jdbc.Driver
-    hikari:
-      driver-class-name: com.mysql.jdbc.Driver
   batch:
     initialize-schema: always
