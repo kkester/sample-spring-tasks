@@ -8,7 +8,7 @@ Sample Spring Cloud Task Application
 ```
 app register --name file-ingest --type task --uri file:///Users/keithkester/workspace/sample-spring-tasks/build/libs/tasks-0.0.1-SNAPSHOT.jar
 ```
-- Create a Task
+- Create a Stream
 ```
 task create fileIngestTask --definition file-ingest
 ```
