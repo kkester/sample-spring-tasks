@@ -1,6 +1,6 @@
-package com.pivotal.tasks.jobs;
+package io.spring.tasks.jobs;
 
-import com.pivotal.tasks.users.UserEntity;
+import io.spring.tasks.users.UserEntity;
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.FieldSet;
 

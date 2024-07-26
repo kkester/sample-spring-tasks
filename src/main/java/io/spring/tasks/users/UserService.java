@@ -1,15 +1,15 @@
-package com.pivotal.tasks.users;
+package io.spring.tasks.users;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 @Slf4j
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserEntity save(UserEntity user) {
         UserEntity userEntity = userRepository.save(user);

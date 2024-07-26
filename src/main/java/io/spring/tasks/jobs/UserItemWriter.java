@@ -1,10 +1,9 @@
-package com.pivotal.tasks.jobs;
+package io.spring.tasks.jobs;
 
-import com.pivotal.tasks.users.UserEntity;
-import com.pivotal.tasks.users.UserService;
+import io.spring.tasks.users.UserEntity;
+import io.spring.tasks.users.UserService;
+import org.springframework.batch.item.Chunk;
 import org.springframework.batch.item.ItemWriter;
-
-import java.util.List;
 
 public class UserItemWriter implements ItemWriter<UserEntity> {
 
@@ -15,7 +14,7 @@ public class UserItemWriter implements ItemWriter<UserEntity> {
     }
 
     @Override
-    public void write(List<? extends UserEntity> items) {
+    public void write(Chunk<? extends UserEntity> items) throws Exception {
         if (items != null) {
             items.forEach(u -> userService.save(u));
         }
