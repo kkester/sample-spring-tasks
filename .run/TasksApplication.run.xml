@@ -1,0 +1,17 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TasksApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <option name="ACTIVE_PROFILES" />
+    <module name="tasks.main" />
+    <option name="PROGRAM_PARAMETERS" value="filePath=classpath:user-data.csv" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.spring.tasks.TasksApplication" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="io.spring.tasks.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

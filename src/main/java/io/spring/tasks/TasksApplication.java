@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.task.configuration.EnableTask;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
 import java.util.Date;
 
 @SpringBootApplication
@@ -26,12 +27,14 @@ public class TasksApplication {
 	@Bean
 	ApplicationRunner applicationRunner(JobLauncher jobLauncher, Job job) {
 		return args -> {
-			log.info("Hello World");
-			JobParameters jobParameters = new JobParametersBuilder()
-				.addString("filePath", "classpath:user-data.csv")
-				.addDate("executionTimeStamp", new Date())
-				.toJobParameters();
-			jobLauncher.run(job, new JobParameters());
+			log.info("Hello World", args.getSourceArgs());
+			JobParametersBuilder jobParametersBuilder = new JobParametersBuilder();
+			Arrays.stream(args.getSourceArgs())
+				.filter(arg -> arg.contains("="))
+				.map(arg -> arg.split("="))
+				.filter(arg -> arg.length == 2)
+				.forEach(arg -> jobParametersBuilder.addString(arg[0], arg[1]));
+			jobLauncher.run(job, jobParametersBuilder.toJobParameters());
 		};
 	}
 }

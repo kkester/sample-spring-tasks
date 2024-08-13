@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
-import org.springframework.batch.core.configuration.annotation.StepScope;
+import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.repository.JobRepository;
@@ -31,12 +31,12 @@ public class JobConfig {
     private final ResourceLoader resourceLoader;
 
     @Bean
-    @StepScope
-    public ItemStreamReader<UserEntity> userEntityItemStreamReader(@Value("#{jobExecutionContext['filePath']}") String filePath) {
+    @JobScope
+    public ItemStreamReader<UserEntity> userEntityItemStreamReader(@Value("#{jobParameters['filePath']}") String filePath) {
         log.info("***************** reading {} *****************", filePath);
         return new FlatFileItemReaderBuilder<UserEntity>()
             .name("reader")
-            .resource(resourceLoader.getResource("classpath:user-data.csv"))
+            .resource(resourceLoader.getResource(filePath))
             .delimited()
             .names("name", "email", "city", "state")
             .fieldSetMapper(new UserFieldSetMapper())

@@ -1,14 +1,17 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
+  sql:
+    init:
+      mode: always
+      platform: all
   datasource:
     url: jdbc:mysql://${SQL_HOST:localhost}:${SQL_PORT:3306}/${SQL_DB:mydatabase}
     username: ${SQL_USERNAME:myuser}
     password: ${SQL_PASSWORD:secret}
   batch:
     jdbc:
-      initialize-schema: always
+      schema: schema.sql

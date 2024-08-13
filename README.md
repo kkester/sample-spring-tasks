@@ -4,14 +4,14 @@ Sample Spring Cloud Task Application
 ## About the project
 
 This project is a sample Spring boot application that showcases the following technologies.
-- Spring Cloud Tasks
-- Parameterized Spring Boot Batch implementation
+- Spring Cloud Tasks.
+- Parameterized Spring Boot Batch implementation to process csv files.
 - MySQL database integration with Spring schema initialization.
-- Project leverages `spring-boot-docker-compose`
+- Project leverages `spring-boot-docker-compose`.
 
 ### Launching Task Application Jobs
 
-Execute `./gradlew bootRun`
+Execute `./gradlew bootRun --args "filePath=classpath:user-data.csv"`
 
 ### Reference Documentation
 For further reference, please consider the following sections:
